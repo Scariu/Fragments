@@ -15,7 +15,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        binding.buttonFirstFragment.setOnClickListener(v -> {
+                    showFirstFragment();
+                }
+        );
+    }
+
+    private void showFirstFragment() {
         FirstFragment firstFragment = FirstFragment.newInstance("","");
-        getSupportFragmentManager().beginTransaction().add(R.id.mainContainer, firstFragment, "First").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, firstFragment, "First").commit();
     }
 }
