@@ -16,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.buttonFirstFragment.setOnClickListener(v -> {
+        /*binding.buttonFirstFragment.setOnClickListener(v -> {
                     showFirstFragment();
                 }
-        );
+        );*/
     }
 
     private void showFirstFragment() {
