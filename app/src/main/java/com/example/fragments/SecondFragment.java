@@ -63,6 +63,9 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSecondBinding.inflate(getLayoutInflater(), container, false);
+        binding.webViewSite.loadUrl(mParam1);
+
         return binding.getRoot();
+
     }
 }
