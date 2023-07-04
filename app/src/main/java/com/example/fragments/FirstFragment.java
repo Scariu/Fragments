@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.fragments.databinding.ActivityMainBinding;
 import com.example.fragments.databinding.FragmentFirstBinding;
 
+import java.net.URL;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FirstFragment#newInstance} factory method to
@@ -57,7 +59,6 @@ public class FirstFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            initListeners();
         }
     }
 
@@ -66,22 +67,15 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
-        return binding.getRoot();
-
-    }
-
-    private void initListeners() {
         binding.buttonVer.setOnClickListener(v -> {
-            sendToUrl();
+                    sendToUrl();
                 }
         );
+        return binding.getRoot();
     }
-
-    protected void sendToUrl(){
-        /*Intent intentURL = new Intent(Intent.ACTION_VIEW);
-        intentURL.setType("text/plain");
-        intentURL.setData(Uri.parse(intentURL));
-
-         */
+    public void sendToUrl(){
+       String url = binding.editTextWeb.getText().toString();
+       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,
+               SecondFragment.newInstance(url,""),"Second").commit();
     }
 }
