@@ -3,6 +3,7 @@ package com.example.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.fragments.databinding.FragmentFirstBinding;
 import com.example.fragments.databinding.FragmentSecondBinding;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,8 +66,11 @@ public class SecondFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSecondBinding.inflate(getLayoutInflater(), container, false);
         binding.webViewSite.loadUrl(mParam1);
-
+        binding.buttonFinalizar.setOnClickListener(v -> {
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.popBackStack();
+                }
+        );
         return binding.getRoot();
-
     }
 }
