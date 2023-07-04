@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BFA9E6"
+    android:background="#E3D8F8"
     tools:context=".FirstFragment">
 
     <EditText
